@@ -4,20 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./tailwind.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
     <title>TATTOOS BY AVOCADO MAN</title>
   </head>
   <body>
-    <header class="text-center"><img src="assets/logo.jpg"></header>
-    <div class="flex text-center">
-      <div class="flex-1"> <a href="./contact.html">Contact</a></div>
-      <div class="flex-1"><img class="object-scale-down" src="./assets/star.jpg"></div>
-      <div class="flex-1"> <a href="./about.html" >About</a></div>
-      <div class="flex-1"><img class="object-scale-down" src="./assets/star.jpg"></div>
-      <div class="flex-1"> <a href="./shop.html">Shop</a> </div>
+    <header class="text-center">
+      <a href="./index.html"><img src="assets/logo.jpg" /></a>
+    </header>
+    <div class="flex text-center" id="navbar">
+        <div class="flex-1"></div>
+      <div class="flex-1">
+        <a href="./contact.html"><button class="button border-b-4">Contact</button></a>
+      </div>
+      <div class="flex-1">
+        <img src="./assets/star.jpg" id="star" />
+      </div>
+      <div class="flex-1"><a href="./about.html"><button class="button border-b-4">About</button></a></div>
+      <div class="flex-1">
+        <img src="./assets/star.jpg" id="star" />
+      </div>
+      <div class="flex-1"><a href="./shop.html"><button class="button border-b-4">Shop</button></a></div>
+      <div class="flex-1"></div>
     </div>
-    <img src="assets/avocado.jpg" alt="tattoos by avocado man" />
-    <footer>
-      <span class="text-center"> made by @hunterwk </span>
+    <div>
+      <img src="assets/avocado.jpg" alt="tattoos by avocado man" />
+    </div>
+    <br />
+    <footer class="text-center text-xs tracking-tighter">
+      <span> made by <a href="https://github.com/hunterwk">@hunterwk</a> </span>
     </footer>
   </body>
 </html>
