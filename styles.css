@@ -3,3 +3,21 @@
     width: auto;
     margin: auto;
 }
+
+input[type=text] {
+    border: 2px solid black;
+    width: 75%;
+}
+input[type=email] {
+    border: 2px solid black;
+    width: 75%;
+}
+input[type=instagram] {
+    border: 2px solid black;
+    width: 75%;
+}
+textarea[type=message] {
+    border: 2px solid black;
+    width: 75%;
+}
+
