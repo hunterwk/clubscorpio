@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['Email'])) {
-    $email_to = "hunterkantner@gmail.com";
+    $email_to = "admin@avcdoman.com";
     $email_subject = "New tattoo inquiry";
 
     function problem($error) {
