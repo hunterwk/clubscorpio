@@ -16,6 +16,7 @@ if (isset($_POST['Email'])) {
     }
     $name = $_POST['Name'];
     $email = $_POST['Email'];
+    $instagram = $_POST['Instagram'];
     $message = $_POST['Message'];
 
     $error_message = "";
@@ -49,6 +50,7 @@ if (isset($_POST['Email'])) {
 
     $email_message .= "Name: " . clean_string($name) . "\n";
     $email_message .= "Email: " . clean_string($email) . "\n";
+    $email_message .= "Instagram: " . clean_string($instagram) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
 
     $headers = 'From: ' . $email . "\r\n" .
