@@ -12,7 +12,7 @@ if (isset($_POST['Email'])) {
         !isset($_POST['Email']) ||
         !isset($_POST['Message'])
     ) {
-        problem('Please fill out the required parts of the contact form')
+        problem('Please fill out the required parts of the contact form');
     }
     $name = $_POST['Name'];
     $email = $_POST['Email'];
