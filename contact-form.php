@@ -58,7 +58,8 @@ if (isset($_POST['Email'])) {
         'X-Mailer: PHP/' . phpversion();
     mail($email_to, $email_subject, $email_message, $headers);
 ?>
-    Thank you for inquiring about a tattoo, you will hear from me soon.
+    
 <?php
+header("Refresh:0; url=thankyou.html");
 }
 ?>
