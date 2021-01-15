@@ -19,7 +19,6 @@ if (isset($_POST['Email'])) {
     $instagram = $_POST['Instagram'];
     $message = $_POST['Message'];
 
-    $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 
     if (!preg_match($email_exp, $email)) {
@@ -60,6 +59,6 @@ if (isset($_POST['Email'])) {
 ?>
     
 <?php
-header("Refresh:0; url=thankyou.html");
+
 }
 ?>
