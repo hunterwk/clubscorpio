@@ -4,10 +4,11 @@ $msgClass = 'errordiv';
 if(isset($_POST['submit'])){
     // Get the submitted form data
     $postData = $_POST;
-    $email = $_POST['email'];
-    $name = $_POST['name'];
+    $email = $_POST['Email'];
+    $name = $_POST['Name'];
     $subject = $_POST['subject'];
     $message = $_POST['message'];
+    $instagram = $_POST['Instagram']
     
     // Check whether submitted data is not empty
     if(!empty($email) && !empty($name) && !empty($subject) && !empty($message)){
@@ -19,11 +20,11 @@ if(isset($_POST['submit'])){
             $uploadStatus = 1;
             
             // Upload attachment file
-            if(!empty($_FILES["attachment"]["name"])){
+            if(!empty($_FILES["referenceFile"]["name"])){
                 
                 // File path config
                 $targetDir = "uploads/";
-                $fileName = basename($_FILES["attachment"]["name"]);
+                $fileName = basename($_FILES["referenceFile"]["name"]);
                 $targetFilePath = $targetDir . $fileName;
                 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
                 
@@ -31,7 +32,7 @@ if(isset($_POST['submit'])){
                 $allowTypes = array('pdf', 'doc', 'docx', 'jpg', 'png', 'jpeg');
                 if(in_array($fileType, $allowTypes)){
                     // Upload file to the server
-                    if(move_uploaded_file($_FILES["attachment"]["tmp_name"], $targetFilePath)){
+                    if(move_uploaded_file($_FILES["referenceFile"]["tmp_name"], $targetFilePath)){
                         $uploadedFile = $targetFilePath;
                     }else{
                         $uploadStatus = 0;
