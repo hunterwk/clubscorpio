@@ -1,7 +1,7 @@
 <?php
 $postData = $uploadedFile = $statusMsg = '';
 $msgClass = 'errordiv';
-if(isset($_POST['submit'])){
+if(isset($_POST['Email'])){
     // Get the submitted form data
     $postData = $_POST;
     $email = $_POST['Email'];
