@@ -86,7 +86,7 @@ if (isset($_POST['Email'])) {
             
             $message .= "--{$mime_boundary}--";
             $returnpath = "-f" . $email;
-
+        }
 
 
     mail($email_to, $email_subject, $email_message, $headers);

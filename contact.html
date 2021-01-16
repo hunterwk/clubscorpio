@@ -37,10 +37,30 @@
       <div class="flex-1"></div>
     </div>
     <br />
+    <div class="container text-center mx-auto">
+      <h2  onclick="faqDisplay()"><button class="text-xl border-8 border-blue-800">F.A.Q. </button></h2>
+      <div class="hidden" id="FAQ">
+        <ul>
+          <li>Q: WHAT DAYS DO YOU TATTOO</li>
+          <li>A: I TATTOO EVERYDAY EXCEPT THURSDAY AND SUNDAY.</li>
+          <li>Q: WHAT DAYS DO YOU TATTOO</li>
+          <li>A: I TATTOO EVERYDAY EXCEPT THURSDAY AND SUNDAY.</li>
+          <li>Q: WHAT DAYS DO YOU TATTOO</li>
+          <li>A: I TATTOO EVERYDAY EXCEPT THURSDAY AND SUNDAY.</li>
+          <li>Q: WHAT DAYS DO YOU TATTOO</li>
+          <li>A: I TATTOO EVERYDAY EXCEPT THURSDAY AND SUNDAY.</li>
+        </ul>
+      </div>
+    </div>
+    <br>
     <div class="container border-4 mx-auto">
       <div class="text-center">
         <h2>Tattoo Inquiry Form</h2>
-        <form method="post" action="contact-form.php" enctype="multipart/form-data">
+        <form
+          method="post"
+          action="contact-form.php"
+          enctype="multipart/form-data"
+        >
           name * <br /><input
             type="text"
             id="Name"
@@ -63,7 +83,8 @@
             id="Message"
             name="Message"
             required
-          ></textarea><br />
+          ></textarea
+          ><br />
           reference image<br /><input
             type="file"
             name="referenceFile"
@@ -78,45 +99,67 @@
           <table class="border-seperate border-4 table-auto mx-auto">
             <thead>
               <tr>
-                <th>SUNDAY</th>
-                <th>MONDAY</th>
-                <th>TUESDAY</th>
-                <th>WEDNESDAY</th>
-                <th>THURSDAY</th>
-                <th>FRIDAY</th>
-                <th>SATURDAY</th>
+                <th class="border-b-4">SUNDAY</th>
+                <th class="border-b-4">MONDAY</th>
+                <th class="border-b-4">TUESDAY</th>
+                <th class="border-b-4">WEDNESDAY</th>
+                <th class="border-b-4">THURSDAY</th>
+                <th class="border-b-4">FRIDAY</th>
+                <th class="border-b-4">SATURDAY</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>N/A</td>
-                <td><input type="radio" name="monday1" value="monday1"> 12-4</td>
-                <td><input type="radio" name="tuesday1" value="tuesday1"> 12-4</td>
-                <td><input type="radio" name="wednesday1" value="wednesday1"> 12-4</td>
+                <td>
+                  <input type="radio" name="monday1" value="monday1" /> 12-4
+                </td>
+                <td>
+                  <input type="radio" name="tuesday1" value="tuesday1" /> 12-4
+                </td>
+                <td>
+                  <input type="radio" name="wednesday1" value="wednesday1" />
+                  12-4
+                </td>
                 <td>N/A</td>
-                <td><input type="radio" name="friday1" value="friday1"> 12-4</td>
-                <td><input type="radio" name="saturday1" value="saturday1"> 12-4</td>
+                <td>
+                  <input type="radio" name="friday1" value="friday1" /> 12-4
+                </td>
+                <td>
+                  <input type="radio" name="saturday1" value="saturday1" /> 12-4
+                </td>
               </tr>
               <tr>
                 <td>N/A</td>
-                <td><input type="radio" name="monday2" value="monday2">4-8</td>
-                <td><input type="radio" name="tuesday2" value="tuesday2">4-8</td>
-                <td><input type="radio" name="wednesday2" value="wednesday2">4-8</td>
+                <td>
+                  <input type="radio" name="monday2" value="monday2" />4-8
+                </td>
+                <td>
+                  <input type="radio" name="tuesday2" value="tuesday2" />4-8
+                </td>
+                <td>
+                  <input type="radio" name="wednesday2" value="wednesday2" />4-8
+                </td>
                 <td>N/A</td>
-                <td><input type="radio" name="friday2" value="friday2">4-8</td>
-                <td><input type="radio" name="saturday2" value="saturday2">4-8</td>
+                <td>
+                  <input type="radio" name="friday2" value="friday2" />4-8
+                </td>
+                <td>
+                  <input type="radio" name="saturday2" value="saturday2" />4-8
+                </td>
               </tr>
             </tbody>
           </table>
-        <br/>
-          <input type="submit" value="Submit">
-      <br/>
+          <br />
+          <input type="submit" value="Submit" />
+          <br />
         </form>
-        <br>
+        <br />
       </div>
     </div>
     <footer class="text-center text-xs tracking-tighter">
       <span> made by <a href="https://github.com/hunterwk">@hunterwk</a> </span>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>
