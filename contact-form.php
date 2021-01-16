@@ -19,6 +19,7 @@ if (isset($_POST['Email'])) {
     $instagram = $_POST['Instagram'];
     $message = $_POST['Message'];
     $reference = $_POST['referenceFile'];
+    $monday1 = $_POST['monday1'];
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
