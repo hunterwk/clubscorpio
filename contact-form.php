@@ -18,37 +18,25 @@ if (isset($_POST['Email'])) {
     $email = $_POST['Email'];
     $instagram = $_POST['Instagram'];
     $message = $_POST['Message'];
-    $reference = $_POST['referenceFile'];
     $monday1 = $_POST['monday1'];
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 
-    $uploadStatus = 1;
-            // Upload attachment file
-            if(!empty($_FILES["reference"]["name"])){
-                
-                // File path config
-                $targetDir = "uploads/";
-                $fileName = basename($_FILES["reference"]["name"]);
-                $targetFilePath = $targetDir . $fileName;
-                $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-                
-                // Allow certain file formats
-                $allowTypes = array('pdf', 'doc', 'docx', 'jpg', 'png', 'jpeg');
-                if(in_array($fileType, $allowTypes)){
-                    // Upload file to the server
-                    if(move_uploaded_file($_FILES["reference"]["tmp_name"], $targetFilePath)){
-                        $uploadedFile = $targetFilePath;
-                    }else{
-                        $uploadStatus = 0;
-                        $statusMsg = "Sorry, there was an error uploading your file.";
-                    }
-                }else{
-                    $uploadStatus = 0;
-                    $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
-                }
-            }
+    $name_of_uploaded_file = basename($_FILES['referenceFile']['name']);
+    $type_of_uploaded_file = substr($name_of_uploaded_file, strrpos($name_of_uploaded_file, '.')+1);
+    $size_of_uploaded_file = $_FILES["uploaded_file"]["size"]/1024;
+    $path_of_uploaded_file = $upload_folder . $name_of_uploaded_file;
+    $tmp_path = $_FILES["uploaded_file"]["tmp_name"];
+
+    if(is_uploaded_file($tmp_path))
+    {
+         if(!copy($tmp_path,$path_of_uploaded_file))
+        {
+        $errors .= '\n error while copying the uploaded file';
+        }
+    }     
+
 
     if (!preg_match($email_exp, $email)) {
         $error_message .= 'The Email address you entered does not appear to be valid.<br>';
@@ -81,6 +69,8 @@ if (isset($_POST['Email'])) {
     $email_message .= "Instagram: " . clean_string($instagram) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
     $email_message .= "Availability: " . $monday1 . "\n";
+    $email_message .= "FIle NAME: " . $name_of_uploaded_file . "\n"; 
+
 
     $headers = 'From: ' . $email . "\r\n" .
         'Reply-To: ' . $email . "\r\n" .
