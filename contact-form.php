@@ -70,7 +70,7 @@ if (isset($_POST['Email'])) {
     $email_message .= "Message: " . clean_string($message) . "\n";
     $email_message .= "Availability: " . $monday1 . "\n";
     $email_message .= "FIle NAME: " . $name_of_uploaded_file . "\n";
-    $email_message .= "hellllooooooooo"
+    $email_message .= "hellllooooooooo";
 
 
     $headers = 'From: ' . $email . "\r\n" .
