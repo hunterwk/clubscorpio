@@ -48,6 +48,7 @@ if (isset($_POST['Email'])) {
                     $uploadStatus = 0;
                     $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
                 }
+            }
 
     if (!preg_match($email_exp, $email)) {
         $error_message .= 'The Email address you entered does not appear to be valid.<br>';
