@@ -60,7 +60,7 @@ if (isset($_POST['Email'])) {
         'Reply-To: ' . $email . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
 
-        if(!empty($uploadedFile) && file_exists($uploadedFile)){
+        if(!empty($reference) && file_exists($reference)){
             
             // Boundary 
             $semi_rand = md5(time()); 
@@ -74,15 +74,15 @@ if (isset($_POST['Email'])) {
             "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n"; 
             
             // Preparing attachment
-            if(is_file($uploadedFile)){
+            if(is_file($reference)){
                 $message .= "--{$mime_boundary}\n";
-                $fp =    @fopen($uploadedFile,"rb");
-                $data =  @fread($fp,filesize($uploadedFile));
+                $fp =    @fopen($reference,"rb");
+                $data =  @fread($fp,filesize($reference));
                 @fclose($fp);
                 $data = chunk_split(base64_encode($data));
-                $message .= "Content-Type: application/octet-stream; name=\"".basename($uploadedFile)."\"\n" . 
-                "Content-Description: ".basename($uploadedFile)."\n" .
-                "Content-Disposition: attachment;\n" . " filename=\"".basename($uploadedFile)."\"; size=".filesize($uploadedFile).";\n" . 
+                $message .= "Content-Type: application/octet-stream; name=\"".basename($reference)."\"\n" . 
+                "Content-Description: ".basename($reference)."\n" .
+                "Content-Disposition: attachment;\n" . " filename=\"".basename($reference)."\"; size=".filesize($reference).";\n" . 
                 "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n";
             }
             
