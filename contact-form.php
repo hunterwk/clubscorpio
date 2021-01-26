@@ -24,6 +24,31 @@ if (isset($_POST['Email'])) {
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 
+    $uploadStatus = 1;
+            // Upload attachment file
+            if(!empty($_FILES["reference"]["name"])){
+                
+                // File path config
+                $targetDir = "uploads/";
+                $fileName = basename($_FILES["reference"]["name"]);
+                $targetFilePath = $targetDir . $fileName;
+                $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+                
+                // Allow certain file formats
+                $allowTypes = array('pdf', 'doc', 'docx', 'jpg', 'png', 'jpeg');
+                if(in_array($fileType, $allowTypes)){
+                    // Upload file to the server
+                    if(move_uploaded_file($_FILES["reference"]["tmp_name"], $targetFilePath)){
+                        $uploadedFile = $targetFilePath;
+                    }else{
+                        $uploadStatus = 0;
+                        $statusMsg = "Sorry, there was an error uploading your file.";
+                    }
+                }else{
+                    $uploadStatus = 0;
+                    $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
+                }
+
     if (!preg_match($email_exp, $email)) {
         $error_message .= 'The Email address you entered does not appear to be valid.<br>';
     }
@@ -91,7 +116,7 @@ if (isset($_POST['Email'])) {
         }
 
 
-    mail($email_to, $email_subject, $email_message, $headers);
+    mail($email_to, $email_subject, $email_message, $headers, $returnpath);
 ?>
     
 <?php
