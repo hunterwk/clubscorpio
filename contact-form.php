@@ -1,4 +1,6 @@
 <?php
+include_once('Mail.php');
+include_once('Mail_Mime/mime.php');
 if (isset($_POST['Email'])) {
     $email_to = "admin@avcdoman.com";
     $email_subject = "New tattoo inquiry";
@@ -69,7 +71,7 @@ if (isset($_POST['Email'])) {
     $email_message .= "Instagram: " . clean_string($instagram) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
     $email_message .= "Availability: " . $monday1 . "\n";
-    $email_message .= "FIle NAME: " . $name_of_uploaded_file . "\n";
+    $email_message .= 
     $email_message .= "hellllooooooooo";
 
 

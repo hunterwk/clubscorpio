@@ -12,7 +12,7 @@ $your_email = 'admin@avcdoman.com';
 
 $errors ='';
 
-if(isset($_POST['submit']))
+if(isset($_POST['Email']))
 {
 	//Get the uploaded file information
 	$name_of_uploaded_file =  basename($_FILES['uploaded_file']['name']);
@@ -87,7 +87,7 @@ if(isset($_POST['submit']))
 		$mail = Mail::factory("mail");
 		$mail->send($to, $headers, $body);
 		//redirect to 'thank-you page
-		header('Location: thank-you.html');
+		header('Location: thankyou.html');
 	}
 }
 ///////////////////////////Functions/////////////////
