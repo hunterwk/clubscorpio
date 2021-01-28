@@ -1,4 +1,5 @@
 <?php
+include_path('.:/opt/alt/php72/usr/share/pear');
 include_once('Mail.php');
 include_once('Mail_Mime/mime.php');
 
@@ -112,7 +113,7 @@ if (isset($_POST['Email'])) {
     $email_message .= "Message: " . clean_string($message) . "\n";
     $email_message .= "Availability: \n";
     foreach($availability as $b) { 
-        $email_message .= print $b . "\n";
+        print $b . "\n";
     }
     
     $headers = 'From: ' . $email . "\r\n" .
