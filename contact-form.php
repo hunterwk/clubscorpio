@@ -21,6 +21,16 @@ if (isset($_POST['Email'])) {
     $instagram = $_POST['Instagram'];
     $message = $_POST['Message'];
     $monday1 = $_POST['monday1'];
+    $monday2 = $_POST['monday2'];
+    $tuesday1 = $_POST['tuesday1'];
+    $tuesday2 = $_POST['tuesday2'];
+    $wednesday1 = $_POST['wednesday1'];
+    $wednesday2 = $_POST['wednesday2'];
+    $friday1 = $_POST['friday1'];
+    $friday2 = $_POST['friday2'];
+    $saturday1 = $_POST['saturday1'];
+    $saturday2 = $_POST['saturday2'];
+    
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -70,9 +80,9 @@ if (isset($_POST['Email'])) {
     $email_message .= "Email: " . clean_string($email) . "\n";
     $email_message .= "Instagram: " . clean_string($instagram) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
-    $email_message .= "Availability: " . $monday1 . "\n";
-    $email_message .= 
-    $email_message .= "hellllooooooooo";
+    $email_message .= "Availability: " . $monday2 . $tuesday1 . $tuesday2 . $wednesday1 . $wednesday2 . $friday1 . $friday2 . $saturday1 . $saturday2 . "\n";
+    $email_message .= "Will this be working? \n";
+    $email_message .= "hellllooooooooo \n";
 
 
     $headers = 'From: ' . $email . "\r\n" .
