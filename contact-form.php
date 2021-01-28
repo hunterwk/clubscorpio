@@ -1,5 +1,4 @@
 <?php
-include_path('.:/opt/alt/php72/usr/share/pear');
 include_once('Mail.php');
 include_once('Mail_Mime/mime.php');
 
