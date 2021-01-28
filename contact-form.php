@@ -110,7 +110,7 @@ if (isset($_POST['Email'])) {
     $email_message .= "Email: " . clean_string($email) . "\n";
     $email_message .= "Instagram: " . clean_string($instagram) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
-    $email_message .= "Availability: \n";
+    $email_message .= "Availability: ". $availability . "\n";
     foreach($availability as $b) { 
         print $b . "\n";
     }
