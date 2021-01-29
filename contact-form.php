@@ -1,7 +1,7 @@
 <?php
 include_once('Mail.php');
 include_once('Mail_Mime/mime.php');
-ini_set("include_path", '/home/avcdszxa/php:' . ini_get("include_path") );
+
 
 $max_allowed_file_size = 10000;
 $allowed_extensions = array("jpg", "jpeg", "gif", "bmp", ".HEIC");
