@@ -1,7 +1,11 @@
 <?php
 include_once('Mail.php');
 include_once('Mail_Mime/mime.php');
+ini_set("include_path", '/home/avcdszxa/php:' . ini_get("include_path") );
 
+$max_allowed_file_size = 10000;
+$allowed_extensions = array("jpg", "jpeg", "gif", "bmp", ".HEIC");
+$upload_folder = './uploads/';
 
 if (isset($_POST['Email'])) {
     $email_to = "admin@avcdoman.com";
@@ -73,7 +77,12 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-
+    $name_of_uploaded_file =  basename($_FILES['referenceFile']['name']);
+    $type_of_uploaded_file = substr($name_of_uploaded_file, 
+							strrpos($name_of_uploaded_file, '.') + 1);
+    $size_of_uploaded_file = $_FILES["referenceFile"]["size"]/1024;
+    $path_of_uploaded_file = $upload_folder . $name_of_uploaded_file;
+	$tmp_path = $_FILES["uploaded_file"]["tmp_name"];
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -110,17 +119,14 @@ if (isset($_POST['Email'])) {
     $email_message .= "Email: " . clean_string($email) . "\n";
     $email_message .= "Instagram: " . clean_string($instagram) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
-    $email_message .= "Availability: ". $availability . "\n";
+    $email_message .= "Availability: \n";
     foreach($availability as $b) { 
-        print $b . "\n";
+        $email_message .= $b . "\n";
     }
-    
-    $headers = 'From: ' . $email . "\r\n" .
--        'Reply-To: ' . $email . "\r\n" .
--        'X-Mailer: PHP/' . phpversion();
--
+    $email_message = new Mail_mime();
+    $email_message->addAttachment($path_of_uploaded_file);
 
-    mail($email_to, $email_subject, $email_message, $headers);
+    mail($email_to, $email_subject, $email_message);
 ?>
     
 <?php
