@@ -1,4 +1,5 @@
 <?php
+ini_set("include_path", '/home/avcdszxa/php:' . ini_get("include_path") );
 include_once('Mail.php');
 include_once('Mail_Mime/mime.php');
 
