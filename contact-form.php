@@ -7,9 +7,6 @@ require 'plugins/PHPMailer/src/Exception.php';
 require 'plugins/PHPMailer/src/PHPMailer.php';
 require 'plugins/PHPMailer/src/SMTP.php';
 
-$max_allowed_file_size = 10000;
-$allowed_extensions = array("jpg", "jpeg", "gif", "bmp", ".HEIC");
-$upload_folder = './uploads/';
 
 if (isset($_POST['Email'])) {
     $email_to = "admin@avcdoman.com";
