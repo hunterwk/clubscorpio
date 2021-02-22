@@ -1,8 +1,11 @@
 <?php
 
-include_once('Mail.php');
-include_once('Mail_Mime/mime.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
+require 'plugins/PHPMailer/src/Exception.php';
+require 'plugins/PHPMailer/src/PHPMailer.php';
+require 'plugins/PHPMailer/src/SMTP.php';
 
 $max_allowed_file_size = 10000;
 $allowed_extensions = array("jpg", "jpeg", "gif", "bmp", ".HEIC");
