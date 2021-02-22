@@ -122,9 +122,5 @@ if (isset($_POST['Email'])) {
     
 
     mail($email_to, $email_subject, $email_message);
-?>
-    
-<?php
- header("Refresh:0; url=thankyou.html");
 }
 ?>
