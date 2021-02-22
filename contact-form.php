@@ -78,12 +78,7 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-    $name_of_uploaded_file =  basename($_FILES['referenceFile']['name']);
-    $type_of_uploaded_file = substr($name_of_uploaded_file, 
-							strrpos($name_of_uploaded_file, '.') + 1);
-    $size_of_uploaded_file = $_FILES["referenceFile"]["size"]/1024;
-    $path_of_uploaded_file = $upload_folder . $name_of_uploaded_file;
-	$tmp_path = $_FILES["uploaded_file"]["tmp_name"];
+   
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -124,8 +119,7 @@ if (isset($_POST['Email'])) {
     foreach($availability as $b) { 
         $email_message .= $b . "\n";
     }
-    $email_message = new Mail_mime();
-    $email_message->addAttachment($path_of_uploaded_file);
+    
 
     mail($email_to, $email_subject, $email_message);
 ?>
