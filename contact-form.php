@@ -9,13 +9,9 @@ require 'plugins/PHPMailer/src/SMTP.php';
 
 
 if (isset($_POST['Email'])) {
+    $mail = new PHPMailer();
     $email_to = "admin@avcdoman.com";
     $email_subject = "New tattoo inquiry";
-
-    function problem($error) {
-        echo "Please fully finish the contact form. ";
-        die();
-    }
     if(
         !isset($_POST['Name']) ||
         !isset($_POST['Email']) ||
@@ -78,7 +74,10 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-   
+   if(array_key_exists('referenceFile', $_FILES)) {
+    $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
+    $uploadfile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
+   }
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -120,7 +119,10 @@ if (isset($_POST['Email'])) {
         $email_message .= $b . "\n";
     }
     
+    $mail->isHTML(true);
+    $mail->Subject = 'New Tattoo Inquiry';
+    $mail->Body = $email_message ;
 
-    mail($email_to, $email_subject, $email_message);
+    $mail->send();
 }
 ?>
