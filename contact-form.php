@@ -76,7 +76,7 @@ if (isset($_POST['Email'])) {
     }
    if(array_key_exists('referenceFile', $_FILES)) {
     $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
-    $uploadfile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
+    $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
    }
 
     $error_message = "";
@@ -84,23 +84,23 @@ if (isset($_POST['Email'])) {
     
 
 
-    if (!preg_match($email_exp, $email)) {
-        $error_message .= 'The Email address you entered does not appear to be valid.<br>';
-    }
+    // if (!preg_match($email_exp, $email)) {
+    //     $error_message .= 'The Email address you entered does not appear to be valid.<br>';
+    // }
 
-    $string_exp = "/^[A-Za-z .'-]+$/";
+    // $string_exp = "/^[A-Za-z .'-]+$/";
 
-    if (!preg_match($string_exp, $name)) {
-        $error_message .= 'The Name you entered does not appear to be valid.<br>';
-    }
+    // if (!preg_match($string_exp, $name)) {
+    //     $error_message .= 'The Name you entered does not appear to be valid.<br>';
+    // }
 
-    if (strlen($message) < 2) {
-        $error_message .= 'The Message you entered do not appear to be valid.<br>';
-    }
+    // if (strlen($message) < 2) {
+    //     $error_message .= 'The Message you entered do not appear to be valid.<br>';
+    // }
 
-    if (strlen($error_message) > 0) {
-        problem($error_message);
-    }
+    // if (strlen($error_message) > 0) {
+    //     problem($error_message);
+    // }
 
     $email_message = "Form details below.\n\n";
 
@@ -122,6 +122,7 @@ if (isset($_POST['Email'])) {
     $mail->isHTML(true);
     $mail->Subject = 'New Tattoo Inquiry';
     $mail->Body = $email_message ;
+    $mail->addAttachment = $uploadFile;
 
     $mail->send();
 }
