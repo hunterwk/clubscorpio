@@ -99,9 +99,9 @@ if (isset($_POST['Email'])) {
         $error_message .= 'The Message you entered do not appear to be valid.<br>';
     }
 
-    if (strlen($error_message) > 0) {
-        problem($error_message);
-    }
+    // if (strlen($error_message) > 0) {
+    //     problem($error_message);
+    // }
 
     $email_message = "Form details below.\n\n";
 
