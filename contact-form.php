@@ -128,3 +128,8 @@ if (isset($_POST['Email'])) {
     $mail->send();
 }
 ?>
+
+<?php
+    header("Location: https://avcdoman.com/thankyou.html");
+    exit();
+?>
