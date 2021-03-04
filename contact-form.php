@@ -127,9 +127,8 @@ if (isset($_POST['Email'])) {
 
     $mail->send();
 }
+header("Location: https://avcdoman.com/thankyou.html");
+exit();
+
 ?>
 
-<?php
-    header("Location: https://avcdoman.com/thankyou.html");
-    exit();
-?>
