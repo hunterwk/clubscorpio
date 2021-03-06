@@ -84,7 +84,6 @@ if (isset($_POST['Email'])) {
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
     
 
-
     if (!preg_match($email_exp, $email)) {
         $error_message .= 'The Email address you entered does not appear to be valid.<br>';
     }
@@ -102,23 +101,34 @@ if (isset($_POST['Email'])) {
     // if (strlen($error_message) > 0) {
     //     problem($error_message);
     // }
-
-    $email_message = "Form details below.\n\n";
-
     function clean_string($string)
-    {
-        $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-        return str_replace($bad, "", $string);
-    }
+        {
+            $bad = array("content-type", "bcc:", "to:", "cc:", "href");
+            return str_replace($bad, "", $string);
+        }
 
-    $email_message .= "Name: " . clean_string($name) . "\n";
-    $email_message .= "Email: " . clean_string($email) . "\n";
-    $email_message .= "Instagram: " . clean_string($instagram) . "\n";
-    $email_message .= "Message: " . clean_string($message) . "\n";
-    $email_message .= "Availability: \n";
-    foreach($availability as $b) { 
-        $email_message .= $b . "\n";
-    }
+
+    $email_message =  <<<EOT
+Form details below.\n\n
+Name:  $name  \n
+Email: $email \n
+Instagram: $instagram \n
+Message: $message \n
+Availability: \n
+{foreach($availability as $b) { 
+    $b . "\n";
+}}
+EOT;
+    
+
+    // $email_message .= 
+    // $email_message .= "Email: " . clean_string($email) . "\n";
+    // $email_message .= "Instagram: " . clean_string($instagram) . "\n";
+    // $email_message .= "Message: " . clean_string($message) . "\n";
+    // $email_message .= "Availability: \n";
+    // foreach($availability as $b) { 
+    //     $email_message .= $b . "\n";
+    // }
     
     $mail->isHTML(true);
     $mail->Subject = 'New Tattoo Inquiry';
