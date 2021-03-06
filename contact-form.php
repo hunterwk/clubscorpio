@@ -74,11 +74,11 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-   if(array_key_exists('referenceFile', $_FILES)) {
-    $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
-    $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
+//    if(array_key_exists('referenceFile', $_FILES)) {
+//     $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
+//     $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
 
-   }
+//    }
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -133,7 +133,7 @@ EOT;
     $mail->isHTML(true);
     $mail->Subject = 'New Tattoo Inquiry';
     $mail->Body = $email_message ;
-    $mail->addAttachment = $uploadFile;
+    // $mail->addAttachment = $uploadFile;
 
     $mail->send();
 }
