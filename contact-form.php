@@ -116,7 +116,7 @@ Instagram: $instagram \n
 Message: $message \n
 Availability: \n
 {foreach($availability as $b) { 
-    $b . "\n";
+    $b \n
 }}
 EOT;
     
@@ -135,9 +135,10 @@ EOT;
     $mail->Body = $email_message ;
     // $mail->addAttachment = $uploadFile;
 
-    $mail->send();
+    
 }
 header("Location: https://avcdoman.com/thankyou.html");
+echo($email_message);
 exit();
 
 ?>
