@@ -12,17 +12,8 @@ if (isset($_POST['Email'])) {
     $mail = new PHPMailer();
     $email_to = "admin@avcdoman.com";
     $email_subject = "New tattoo inquiry";
-    if(
-        !isset($_POST['Name']) ||
-        !isset($_POST['Email']) ||
-        !isset($_POST['Message'])
-    ) {
-        problem('Please fill out the required parts of the contact form');
-    }
-    $name = $_POST['Name'];
-    $email = $_POST['Email'];
-    $instagram = $_POST['Instagram'];
-    $message = $_POST['Message'];
+    
+    
     $availability = array();
     if(
         isset($_POST['monday1'])
@@ -77,68 +68,32 @@ if (isset($_POST['Email'])) {
 //    if(array_key_exists('referenceFile', $_FILES)) {
 //     $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
 //     $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
-
 //    }
 
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-    
-
-    if (!preg_match($email_exp, $email)) {
-        $error_message .= 'The Email address you entered does not appear to be valid.<br>';
-    }
-
-    $string_exp = "/^[A-Za-z .'-]+$/";
-
-    if (!preg_match($string_exp, $name)) {
-        $error_message .= 'The Name you entered does not appear to be valid.<br>';
-    }
-
-    if (strlen($message) < 2) {
-        $error_message .= 'The Message you entered do not appear to be valid.<br>';
-    }
-
-    // if (strlen($error_message) > 0) {
-    //     problem($error_message);
-    // }
-    function clean_string($string)
-        {
-            $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-            return str_replace($bad, "", $string);
-        }
-
+    // $name = $_POST['Name'];
+    // $email = $_POST['Email'];
+    // $instagram = $_POST['Instagram'];
+    // $message = $_POST['Message'];
 
     $email_message =  <<<EOT
 Form details below.\n\n
-Name:  $name  \n
+Name:  {$_POST['Name']} \n
 Email: $email \n
 Instagram: $instagram \n
 Message: $message \n
 Availability: \n
-{foreach($availability as $b) { 
-    $b \n
-}}
 EOT;
     
 
-    // $email_message .= 
-    // $email_message .= "Email: " . clean_string($email) . "\n";
-    // $email_message .= "Instagram: " . clean_string($instagram) . "\n";
-    // $email_message .= "Message: " . clean_string($message) . "\n";
-    // $email_message .= "Availability: \n";
-    // foreach($availability as $b) { 
-    //     $email_message .= $b . "\n";
-    // }
     
     $mail->isHTML(true);
     $mail->Subject = 'New Tattoo Inquiry';
     $mail->Body = $email_message;
-    $mail->addAttachment = $uploadFile;
+    // $mail->addAttachment = $uploadFile;
 
     
 }
 header("Location: https://avcdoman.com/thankyou.html");
-print($email_message);
 exit();
 
 ?>
