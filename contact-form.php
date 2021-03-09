@@ -7,6 +7,7 @@ require 'plugins/PHPMailer/src/Exception.php';
 require 'plugins/PHPMailer/src/PHPMailer.php';
 require 'plugins/PHPMailer/src/SMTP.php';
 
+$msg='';
 
 if (array_key_exists('email', $_POST)) {
     date_default_timezone_set('Etc/UTC');
@@ -33,5 +34,5 @@ EOT;
         $msg = 'Invalid email address, message ignored.';
     }
 }
-header("Location: https://avcdoman.com/thankyou.html");
+print $msg;
 ?>
