@@ -9,7 +9,7 @@ require 'plugins/PHPMailer/src/SMTP.php';
 
 $msg = '';
 
-if (array_key_exists('email', '$_POST')) {
+if (array_key_exists('email', $_POST)) {
     date_default_timezone_set('Etc/UTC');
     require '../vendor/autoload.php';
     $mail = new PHPMailer();
