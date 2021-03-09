@@ -8,7 +8,7 @@ require 'plugins/PHPMailer/src/PHPMailer.php';
 require 'plugins/PHPMailer/src/SMTP.php';
 
 
-if (isset($_POST['Email'])) {
+if (array_key_exists('email', $_POST)) {
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->Host = 'localhost';
@@ -84,10 +84,8 @@ Email: {$_POST['Email']} \n
 Instagram: {$_POST['Instagram']} \n
 Message: {$_POST['Message']} \n
 Availability: \n
-EOT;
-    
+EOT; 
 
-    
     $mail->isHTML(true);
     $mail->Subject = 'New Tattoo Inquiry';
     $mail->Body = $email_message;
