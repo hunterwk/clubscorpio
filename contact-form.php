@@ -67,4 +67,5 @@ EOT;
         $msg = 'Invalid email address, message ignored.';
     }
 }
+header("Location: https://avcdoman.com/thankyou.html");
 ?>
