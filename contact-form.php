@@ -27,4 +27,6 @@ EOT;
     }
 }
 print $msg;
+print $_POST['Email'];
+print $mail->Body;
 ?>
