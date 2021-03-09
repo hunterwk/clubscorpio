@@ -77,7 +77,7 @@ Name:  {$_POST['Name']} <br>
 Email: {$_POST['Email']} <br>
 Instagram: {$_POST['Instagram']} <br>
 Message: {$_POST['Message']} <br>
-Availability: $b
+Availability: $a
 EOT;
     if (!$mail->send()){
         $msg = 'Mailer Error: ' . $mail->ErrorInfo;
