@@ -15,7 +15,7 @@ if (isset($_POST['Email'])) {
     $mail->isHTML(true);
     $email_to = "admin@avcdoman.com";
     $mail->addReplyTo($_POST['Email']);
-    $email->Subject = "New tattoo inquiry";
+    $mail->Subject = "New tattoo inquiry";
     $mail->Body = <<<EOT
 Form details below.\n\n
 Name:  {$_POST['Name']} \n
