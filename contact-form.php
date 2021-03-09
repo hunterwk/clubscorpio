@@ -14,7 +14,7 @@ if (isset($_POST['Email'])) {
     $mail = new PHPMailer();
     $mail->isHTML(true);
     $email_to = "admin@avcdoman.com";
-    $mail->addReplyTo($_POST['Email']);
+    $mail->addReplyTo($_POST['Email'], );
     $mail->Subject = "New tattoo inquiry";
     $mail->Body = <<<EOT
 Form details below.\n\n
@@ -25,12 +25,11 @@ Message: {$_POST['Message']} \n
 EOT;
     $mail->send();
     if (!$mail->send()){
-        $msg = 'no work';
+        $msg = 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         $msg = 'do work';
     }
 }
 print $msg;
-print $_POST['Email'];
-print $mail->Body;
+
 ?>
