@@ -12,9 +12,10 @@ $msg = '';
 if (isset($_POST['Email'])) {
     date_default_timezone_set('Etc/UTC');
     $mail = new PHPMailer();
-    $email_to = "admin@avcdoman.com";
-    $email_subject = "New tattoo inquiry";
     $mail->isHTML(true);
+    $email_to = "admin@avcdoman.com";
+    $mail->addReplyTo($_POST['Email']);
+    $email->Subject = "New tattoo inquiry";
     $mail->Body = <<<EOT
 Form details below.\n\n
 Name:  {$_POST['Name']} \n
@@ -22,6 +23,7 @@ Email: {$_POST['Email']} \n
 Instagram: {$_POST['Instagram']} \n
 Message: {$_POST['Message']} \n
 EOT;
+    $mail->send();
     if (!$mail->send()){
         $msg = 'no work';
     } else {
