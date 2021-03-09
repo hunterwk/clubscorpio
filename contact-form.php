@@ -92,7 +92,7 @@ EOT;
     $mail->Subject = 'New Tattoo Inquiry';
     $mail->Body = $email_message;
     // $mail->addAttachment = $uploadFile;
-
+    $mail->send();
     
 }
 header("Location: https://avcdoman.com/thankyou.html");
