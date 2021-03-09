@@ -34,7 +34,7 @@ EOT;
         $msg = 'Invalid email address, message ignored.';
     }
 } else {
-    $msg = "what the fuck"
+    $msg = "what the fuck";
 }
 print "<h2>$msg</h2>"
 ?>
