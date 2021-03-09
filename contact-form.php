@@ -13,7 +13,7 @@ if (isset($_POST['Email'])) {
     date_default_timezone_set('Etc/UTC');
     $mail = new PHPMailer();
     $mail->isHTML(true);
-    $email_to = "admin@avcdoman.com";
+    $mail->addAddress("admin@avcdoman.com");
     $mail->addReplyTo($_POST['Email'], $_POST['Name']);
     $mail->Subject = "New tattoo inquiry";
     $mail->Body = <<<EOT
