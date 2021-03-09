@@ -18,17 +18,17 @@ if (isset($_POST['Email'])) {
     $mail->addReplyTo($_POST['Email'], $_POST['Name']);
     $mail->Subject = "New tattoo inquiry";
     $mail->Body = <<<EOT
-Form details below.\n\n
-Name:  {$_POST['Name']} \n
-Email: {$_POST['Email']} \n
-Instagram: {$_POST['Instagram']} \n
-Message: {$_POST['Message']} \n
+Form details below: <br><br>
+Name:  {$_POST['Name']} <br>
+Email: {$_POST['Email']} <br>
+Instagram: {$_POST['Instagram']} <br>
+Message: {$_POST['Message']} <br>
 EOT;
     $mail->send();
     if (!$mail->send()){
         $msg = 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        $msg = 'do work';
+        header("Location: https://avcdoman.com/thankyou.html");
     }
 }
 print $msg;
