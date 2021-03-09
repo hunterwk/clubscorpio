@@ -68,7 +68,7 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-    $avail = implode(",", $availability);
+    $avail = implode("<br>", $availability);
     $mail->Body = <<<EOT
 Form details below: <br><br>
 Name:  {$_POST['Name']} <br>
