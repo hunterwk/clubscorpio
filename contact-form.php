@@ -34,5 +34,5 @@ EOT;
         $msg = 'Invalid email address, message ignored.';
     }
 }
-print $msg;
+print "<h2>$msg</h2>";
 ?>
