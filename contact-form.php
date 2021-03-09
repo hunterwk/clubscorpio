@@ -16,9 +16,11 @@ if (isset($_POST['Email'])) {
     $email_subject = "New tattoo inquiry";
     $mail->isHTML(true);
     $mail->Body = <<<EOT
-Email: {$_POST['email']}
-Name: {$_POST['name']}
-Message: {$_POST['message']}
+Form details below.\n\n
+Name:  {$_POST['Name']} \n
+Email: {$_POST['Email']} \n
+Instagram: {$_POST['Instagram']} \n
+Message: {$_POST['Message']} \n
 EOT;
     if (!$mail->send()){
         $msg = 'no work';
