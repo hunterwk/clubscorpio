@@ -68,16 +68,14 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-    foreach($availability as $a) { 
-        $b = $a . "<br>";
-    }
+    $avail = implode(",", $availability);
     $mail->Body = <<<EOT
 Form details below: <br><br>
 Name:  {$_POST['Name']} <br>
 Email: {$_POST['Email']} <br>
 Instagram: {$_POST['Instagram']} <br>
 Message: {$_POST['Message']} <br>
-Availability: $availability
+Availability: $avail
 EOT;
     if (!$mail->send()){
         $msg = 'Mailer Error: ' . $mail->ErrorInfo;
