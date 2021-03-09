@@ -89,7 +89,7 @@ Availability: \n
 EOT; 
     // $mail->addAttachment = $uploadFile;
     if (!$mail->send()) {
-        $msg = 'Sorry, something went wrong. Please try again later.';
+        echo 'Sorry, something went wrong. Please try again later.';
     } else {
         header("Location: https://avcdoman.com/thankyou.html");
     }   
