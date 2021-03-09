@@ -24,7 +24,6 @@ Email: {$_POST['Email']} <br>
 Instagram: {$_POST['Instagram']} <br>
 Message: {$_POST['Message']} <br>
 EOT;
-    $mail->send();
     if (!$mail->send()){
         $msg = 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
