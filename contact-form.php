@@ -10,7 +10,6 @@ require 'plugins/PHPMailer/src/SMTP.php';
 
 if (isset($_POST['Email'])) {
     date_default_timezone_set('Etc/UTC');
-    require '../vendor/autoload.php';
     $mail = new PHPMailer();
     $email_to = "admin@avcdoman.com";
     $email_subject = "New tattoo inquiry";
