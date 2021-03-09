@@ -92,6 +92,7 @@ EOT;
         echo 'Sorry, something went wrong. Please try again later.';
     } else {
         header("Location: https://avcdoman.com/thankyou.html");
-    }   
+    }
 };
+exit();
 ?>
