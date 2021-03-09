@@ -7,9 +7,9 @@ require 'plugins/PHPMailer/src/Exception.php';
 require 'plugins/PHPMailer/src/PHPMailer.php';
 require 'plugins/PHPMailer/src/SMTP.php';
 
-$msg='';
+$msg = '';
 
-if (isset($_POST)) {
+if (array_key_exists('email', '$_POST')) {
     date_default_timezone_set('Etc/UTC');
     require '../vendor/autoload.php';
     $mail = new PHPMailer();
@@ -34,4 +34,5 @@ EOT;
         $msg = 'Invalid email address, message ignored.';
     }
 }
+print "<h2>$msg</h2>"
 ?>
