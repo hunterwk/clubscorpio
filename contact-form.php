@@ -91,8 +91,11 @@ EOT;
     if (!$mail->send()) {
         echo 'Sorry, something went wrong. Please try again later.';
     } else {
-        header("Location: https://avcdoman.com/thankyou.html");
+        echo 'ok';
     }
 };
-exit();
+?>
+
+<?php
+header("Location: https://avcdoman.com/thankyou.html");
 ?>
