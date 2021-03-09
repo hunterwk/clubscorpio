@@ -77,7 +77,7 @@ if (array_key_exists('email', $_POST)) {
     // $instagram = $_POST['Instagram'];
     // $message = $_POST['Message'];
 
-    $mail->isHTML(true);
+    $mail->isHTML(false);
     $mail->Subject = 'New Tattoo Inquiry';
     $mail->Body = <<<EOT
 Form details below.\n\n
@@ -89,12 +89,9 @@ Availability: \n
 EOT; 
     // $mail->addAttachment = $uploadFile;
     if (!$mail->send()) {
-        //The reason for failing to send will be in $mail->ErrorInfo
-        //but it's unsafe to display errors directly to users - process the error, log it on your server.
         $msg = 'Sorry, something went wrong. Please try again later.';
     } else {
         header("Location: https://avcdoman.com/thankyou.html");
-    }
-    
-}
+    }   
+};
 ?>
