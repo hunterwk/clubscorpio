@@ -14,7 +14,7 @@ if (isset($_POST['Email'])) {
     $mail = new PHPMailer();
     $mail->isHTML(true);
     $email_to = "admin@avcdoman.com";
-    $mail->addReplyTo($_POST['Email'], );
+    $mail->addReplyTo($_POST['Email'], $_POST['Name']);
     $mail->Subject = "New tattoo inquiry";
     $mail->Body = <<<EOT
 Form details below.\n\n
