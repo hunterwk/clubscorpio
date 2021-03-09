@@ -10,9 +10,11 @@ require 'plugins/PHPMailer/src/SMTP.php';
 
 if (isset($_POST['Email'])) {
     $mail = new PHPMailer();
-    $email_to = "admin@avcdoman.com";
-    $email_subject = "New tattoo inquiry";
-    
+    $mail->isSMTP();
+    $mail->Host = 'localhost';
+    $mail->Port = 25;
+    $mail->setFrom('avcdszxa@avcdoman.com', 'Admin');
+    $mail->addAddress('admin@avcdoman.com');
     
     $availability = array();
     if(
@@ -78,9 +80,9 @@ if (isset($_POST['Email'])) {
     $email_message =  <<<EOT
 Form details below.\n\n
 Name:  {$_POST['Name']} \n
-Email: $email \n
-Instagram: $instagram \n
-Message: $message \n
+Email: {$_POST['Email']} \n
+Instagram: {$_POST['Instagram']} \n
+Message: {$_POST['Message']} \n
 Availability: \n
 EOT;
     
