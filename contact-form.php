@@ -68,6 +68,22 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
+    
+
+    if(isset($_POST['referenceFile'])){
+        $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
+        $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
+        if (move_uploaded_file($_FILES['referenceFile']['tmp_name'], $uploadFile)) {
+            if (!$mail->addAttachment($uploadFile, 'My uploaded file')) {
+                $msg .= 'Failed to attach file ' . $_FILES['referenceFile']['name'];
+            } else {
+                $msg .= 'Message sent!';
+            }
+        } else {
+            $msg .= 'Failed to move file to ' . $uploadfile;
+        }     
+    }
+
     $avail = implode("<br>", $availability);
     $mail->Body = <<<EOT
 Form details below: <br><br>
@@ -75,8 +91,12 @@ Name:  {$_POST['Name']} <br>
 Email: {$_POST['Email']} <br>
 Instagram: {$_POST['Instagram']} <br>
 Message: {$_POST['Message']} <br>
-Availability: $avail
+Availability: <br>
+Attachment status: $msg 
+$avail
 EOT;
+
+
     if (!$mail->send()){
         $msg = 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
