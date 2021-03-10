@@ -75,12 +75,12 @@ if (isset($_POST['Email'])) {
         $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
         if (move_uploaded_file($_FILES['referenceFile']['tmp_name'], $uploadFile)) {
             if (!$mail->addAttachment($uploadFile, 'My uploaded file')) {
-                $msg .= 'Failed to attach file ' . $_FILES['referenceFile']['name'];
+                $msg = 'Failed to attach file ' . $_FILES['referenceFile']['name'];
             } else {
-                $msg .= 'Message sent!';
+                $msg = 'Message sent!';
             }
         } else {
-            $msg .= 'Failed to move file to ' . $uploadfile;
+            $msg = 'Failed to move file to ' . $uploadFile;
         }     
     }
 
@@ -91,9 +91,9 @@ Name:  {$_POST['Name']} <br>
 Email: {$_POST['Email']} <br>
 Instagram: {$_POST['Instagram']} <br>
 Message: {$_POST['Message']} <br>
-Availability: <br>
-Attachment status: $msg 
-$avail
+Availability: <br> 
+$avail <br>
+Attachment status: $msg
 EOT;
 
 
@@ -103,6 +103,5 @@ EOT;
         header("Location: https://avcdoman.com/thankyou.html");
     }
 }
-print $msg;
 
 ?>
