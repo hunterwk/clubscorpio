@@ -93,7 +93,8 @@ Instagram: {$_POST['Instagram']} <br>
 Message: {$_POST['Message']} <br>
 Availability: <br> 
 $avail <br>
-Attachment status: $msg
+Attachment status: $msg <BR>
+$_POST
 EOT;
 
 
