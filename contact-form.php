@@ -94,7 +94,7 @@ Message: {$_POST['Message']} <br>
 Availability: <br> 
 $avail <br>
 Attachment status: $msg <BR>
-$_POST
+$posterTime
 EOT;
 
 
