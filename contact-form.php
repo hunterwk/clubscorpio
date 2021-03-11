@@ -70,18 +70,24 @@ if (isset($_POST['Email'])) {
     }
     
 
-    if(isset($_POST['referenceFile'])){
-        $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
-        $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
-        if (move_uploaded_file($_FILES['referenceFile']['tmp_name'], $uploadFile)) {
-            if (!$mail->addAttachment($uploadFile, 'My uploaded file')) {
-                $msg = 'Failed to attach file ' . $_FILES['referenceFile']['name'];
-            } else {
-                $msg = 'Message sent!';
-            }
-        } else {
-            $msg = 'Failed to move file to ' . $uploadFile;
-        }     
+    // if(isset($_POST['referenceFile'])){
+    //     $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
+    //     $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
+    //     if (move_uploaded_file($_FILES['referenceFile']['tmp_name'], $uploadFile)) {
+    //         if (!$mail->addAttachment($uploadFile, 'My uploaded file')) {
+    //             $msg = 'Failed to attach file ' . $_FILES['referenceFile']['name'];
+    //         } else {
+    //             $msg = 'Message sent!';
+    //         }
+    //     } else {
+    //         $msg = 'Failed to move file to ' . $uploadFile;
+    //     }     
+    // }
+
+    if (isset($_FILES['referenceFile']) &&
+    $_FILES['referenceFile']['error'] == UPLOAD_ERR_OK) {
+    $mail->AddAttachment($_FILES['referenceFile']['tmp_name'],
+                         $_FILES['referenceFile']['name']);
     }
     $posterTime = implode("<br>", $_POST);
     $avail = implode("<br>", $availability);
