@@ -83,7 +83,7 @@ if (isset($_POST['Email'])) {
             $msg = 'Failed to move file to ' . $uploadFile;
         }     
     }
-
+    $posterTime = implode("<br>", $_POST);
     $avail = implode("<br>", $availability);
     $mail->Body = <<<EOT
 Form details below: <br><br>
