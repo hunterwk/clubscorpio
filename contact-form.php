@@ -68,28 +68,21 @@ if (isset($_POST['Email'])) {
     ) {
         array_push($availability, "saturday 4-8");
     }
-    
 
     if(isset($_FILES['referenceFile'])){
         $ext = PHPMailer::mb_pathinfo($_FILES['referenceFile']['name'], PATHINFO_EXTENSION);
         $uploadFile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['referenceFile']['name'])) . '.' . $ext;
         if (move_uploaded_file($_FILES['referenceFile']['tmp_name'], $uploadFile)) {
-            if (!$mail->addAttachment($uploadFile, 'My uploaded file')) {
+            if (!$mail->addAttachment($uploadFile, 'Reference file')) {
                 $msg = 'Failed to attach file ' . $_FILES['referenceFile']['name'];
             } else {
-                $msg = 'Message sent!';
+                $msg = 'Attached Succesfully';
             }
         } else {
             $msg = 'Failed to move file to ' . $uploadFile;
         }     
     }
 
-    // if (isset($_FILES['referenceFile']) &&
-    // $_FILES['referenceFile']['error'] == UPLOAD_ERR_OK) {
-    // $mail->AddAttachment($_FILES['referenceFile']['tmp_name'],
-    //                      $_FILES['referenceFile']['name']);
-    // }
-    $posterTime = implode("<br>", $_POST);
     $avail = implode("<br>", $availability);
     $mail->Body = <<<EOT
 Form details below: <br><br>
@@ -100,7 +93,7 @@ Message: {$_POST['Message']} <br>
 Availability: <br> 
 $avail <br>
 Attachment status: $msg <BR>
-$posterTime
+
 EOT;
 
 
