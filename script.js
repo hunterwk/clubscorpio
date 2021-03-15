@@ -3,7 +3,7 @@ function faqDisplay () {
    element.classList.toggle("hidden");
 }
 
-let response = grecaptcha.getResponse(
-   opt_widget_id
-   )
-console.log(response)
+function submitDisable () {
+   let submitBtn = document.getElementById("Submit");
+   submitBtn.removeAttribute("disabled");
+}
