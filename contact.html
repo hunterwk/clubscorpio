@@ -6,7 +6,13 @@
     <link href="./tailwind.css" rel="stylesheet" />
     <link href="./styles.css" rel="stylesheet" />
     <title>TATTOOS BY AVOCADOMAN</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : '6LdbSH0aAAAAAIqYx6AIsLoL1VsTaUrqqVfVSMwD'
+        });
+      };
+    </script>
   </head>
   <body>
     <div class="container mx-auto max-w-md" id="header">
@@ -163,7 +169,7 @@
           </table>
           <br>
           <div class="flex justify-center">
-          <div class="g-recaptcha" data-sitekey="6LdbSH0aAAAAAIqYx6AIsLoL1VsTaUrqqVfVSMwD" data-callback="isCaptchaChecked"></div>
+          <div class="g-recaptcha" data-sitekey="sitekey" data-callback="isCaptchaChecked"></div>
           </div><br />
           <input type="submit" id="Submit" value="Send" disabled/>
           <br />
@@ -175,5 +181,7 @@
       <span> made by <a href="https://github.com/hunterwk">@hunterwk</a> </span>
     </footer>
     <script src="./script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
   </body>
 </html>

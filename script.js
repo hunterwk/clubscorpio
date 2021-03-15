@@ -4,6 +4,7 @@ function faqDisplay () {
 }
 
 function isCaptchaChecked() {
+   console.log("Captcha checked");
    return grecaptcha && grecaptcha.getResponse().length !== 0;
  }
 
