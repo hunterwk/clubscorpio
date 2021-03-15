@@ -9,7 +9,7 @@ function isCaptchaChecked() {
  }
 
 function submitDisable () {
-   let submitBtn = document.getElementById("Submit");
+   var submitBtn = document.getElementById("Submit");
    submitBtn.removeAttribute("disabled");
 }
 
