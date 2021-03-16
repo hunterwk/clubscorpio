@@ -3,17 +3,19 @@ function faqDisplay () {
    element.classList.toggle("hidden");
 }
 
-function isCaptchaChecked() {
-   console.log(grecaptcha.getResponse());
-   return grecaptcha && grecaptcha.getResponse().length !== 0;
- }
-
-function submitDisable () {
-   var submitBtn = document.getElementById("Submit");
+function isCaptchaChecked() {   
+   if (grecaptcha && grecaptcha.getResponse().length !== 0) {
+      var submitBtn = document.getElementById("Submit");
    submitBtn.removeAttribute("disabled");
    console.log("button enabled")
-}
+   } else {
+      console.log("error")
+   }
+ }
 
-if (isCaptchaChecked()) {
-   submitDisable();
-}
+// function submitDisable () {
+//    var submitBtn = document.getElementById("Submit");
+//    submitBtn.removeAttribute("disabled");
+//    console.log("button enabled")
+// }
+
