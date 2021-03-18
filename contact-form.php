@@ -37,8 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $res = post_captcha($_POST['g-recaptcha-response']);
 
     if (!$res['success']) {
-        // What happens when the CAPTCHA wasn't checked
-        echo '<p>Please go back and make sure you check the security CAPTCHA box.</p><br>';
+        header("Location: https://avcdoman.com/error.html");
     } else {
         if (isset($_POST['Email'])) {
             date_default_timezone_set('Etc/UTC');
