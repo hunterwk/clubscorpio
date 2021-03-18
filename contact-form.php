@@ -136,7 +136,7 @@ Attachment status: $msg <BR>
         }
     }
 } else {
-    header("Location: https://avcdoman.com/error.html")
+    header("Location: https://avcdoman.com/error.html");
 }
 
 // if (isset($_POST['Email'])) {
