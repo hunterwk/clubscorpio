@@ -26,7 +26,7 @@ function igData() {
   };
   xhttp.open(
     "GET",
-    "https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink&access_token=IGQVJXaUgwYXp1cG95QVJvSXhySVNYS1NmRTJzRDNQdXhrbkJHM2V2UGhmc1JjckZACN2o0dHcxSGZA1V3pvTnRHazE2SGxUSVJ1c1FOQTdram1sR1NrOFBUcnVPRVNaS1dvS2F4RE5fQk9hUFppeGVGWQZDZD",
+    "https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink&access_token=IGQVJVaXZAnWVppQV9EaEM1NVpUSFdMZA1J1cXNDYjRTMHhISnZAoQkwyZAkYwUkx5cGJUVFNtZAjhRdUNfNUdWVS10enphSWllT0cydTBlNTNLc05HYmxNQ2VHTmROUFE4ZAmY5eWVFV0dHUDNUbDJJSzgxdwZDZD",
     true
   );
   xhttp.send();
