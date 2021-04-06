@@ -1,6 +1,6 @@
 #star {
-    height: 48px;
-    width: 40px;
+    height: auto;
+    width: auto;
 }
 
 input[type=text] {
@@ -12,10 +12,6 @@ input[type=email] {
     width: 75%;
 }
 input[type=instagram] {
-    border: 2px solid black;
-    width: 75%;
-}
-textarea[type=message] {
     border: 2px solid black;
     width: 75%;
 }
