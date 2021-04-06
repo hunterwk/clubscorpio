@@ -115,11 +115,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
             $avail = implode("<br>", $availability);
             $mail->Body = <<<EOT
-Form details below: <br><br>
+<strong>Form details below:</strong> <br><br>
 Name:  {$_POST['Name']} <br>
 Email: {$_POST['Email']} <br>
-Instagram: {$_POST['Instagram']} <br>
-Message: {$_POST['Message']} <br>
+Phone Number: {$_POST['Phone']} <br>
+Instagram: {$_POST['Instagram']} <a href="https://www.instagram.com/{$_POST['Instagram']}> Link </a> <br>
+Message: <br>
+<p>
+{$_POST['Message']} 
+</p><br>
 Availability: <br> 
 $avail <br>
 Attachment status: $msg <BR>
