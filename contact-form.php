@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 Name:  {$_POST['Name']} <br>
 Email: {$_POST['Email']} <br>
 Phone Number: {$_POST['Phone']} <br>
-Instagram: {$_POST['Instagram']} <a href="https://www.instagram.com/{$_POST['Instagram']}> Link </a> <br>
+Instagram: {$_POST['Instagram']} <a href="https://www.instagram.com/{$_POST['Instagram']}"> Link </a> <br>
 Message: {$_POST['Message']}  <br>
 Availability: <br> 
 $avail <br>
