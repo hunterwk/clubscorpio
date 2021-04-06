@@ -11,7 +11,15 @@ input[type=email] {
     border: 2px solid black;
     width: 75%;
 }
+input[type=tel] {
+    border: 2px solid black;
+    width: 75%;
+}
 input[type=instagram] {
+    border: 2px solid black;
+    width: 75%;
+}
+input[type=submit] {
     border: 2px solid black;
     width: 75%;
 }

@@ -7,6 +7,7 @@ function isCaptchaChecked() {
   if (grecaptcha && grecaptcha.getResponse().length !== 0) {
     var submitBtn = document.getElementById("Submit");
     submitBtn.removeAttribute("disabled");
+    submitBtn.classList.add("hover:bg-red-500")
     console.log("button enabled");
   } else {
     console.log("error");
